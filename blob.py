@@ -28,6 +28,12 @@ class blob (object):
         #more!
     ]
 
+    feelings = [
+        'isn\'t a fan of'
+        'prefers blobs other than'
+        ''
+    ]
+
     def __init__ (self):
         R = 0; G = 1; B = 2
 
@@ -61,7 +67,6 @@ class blob (object):
         '''
         return ((self.color[0]+self.color[1]+self.color[2])/(3))
 
-    #WIP
     def attraction_to (self, other):
         '''
         determines attraction of this blob to another blob
@@ -83,5 +88,11 @@ class blob (object):
         attraction = (768 - sum_diff)*100/768
         return attraction
 
+    def affection_for (self, other):
+
 if __name__ == '__main__':
+    a = blob()
     b = blob()
+    c = blob()
+    d = blob()
+    e = blob()
