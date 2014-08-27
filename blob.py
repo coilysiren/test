@@ -35,10 +35,11 @@ class blob (object):
         'feels friendly towards',
         'has quite a bit of affection for',
         'is in love with',
-
+        #more!
     ]
 
     relationships = [
+        'doesnt feel much towards',
         'is on good terms with',
         'is friends with',
         'is good friends with',
@@ -46,6 +47,7 @@ class blob (object):
         'is dating',
         'is in love with',
         'is soul bonded to',
+        #more!
     ]
 
     def __init__ (self):
@@ -95,9 +97,11 @@ class blob (object):
         diff_B = abs(self.ideal[B] - other.color[B])
         sum_diff = diff_R + diff_G + diff_B
         attraction = (768 - sum_diff)*100/768
+        print(self.color_name,' has ',attraction,' to ',other.color_name)
         return attraction
 
     def affection_for (self, other):
+        pass
 
 if __name__ == '__main__':
     a = blob()
@@ -105,3 +109,7 @@ if __name__ == '__main__':
     c = blob()
     d = blob()
     e = blob()
+    ae = [a,b,c,d,e]
+    for thing1 in ae:
+        for thing2 in ae:
+            thing1.attraction_to(thing2)
