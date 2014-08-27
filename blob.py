@@ -1,15 +1,15 @@
 '''
 blob attributes
 blob = {
-    colors:[R,G,B],
+    color: [R,G,B],
     color_name: 'name',
-    ideals:[R,G,B],
+    ideal: [R,G,B],
     position: [X, Y, angle],
     happiness: value,
     connectors: [angle, type],
 
 blob external functions
-    blob.attraction_to()
+    blob.attraction_to(another_blob)
 }
 '''
 
@@ -22,6 +22,9 @@ class blob (object):
     color_list = [
         [255, 255, 255,'white'],
         [0, 0, 0, 'black'],
+        [255, 0, 0, 'red'],
+        [0, 255, 0, 'green'],
+        [0, 0, 255, 'blue'],
         #more!
     ]
 
@@ -32,7 +35,7 @@ class blob (object):
         self.color = [color[R], color[G], color[B]]
         self.color_name = color[3]
 
-        self.ideals = [self.ideal_R(), self.ideal_G(), self.ideal_B()]
+        self.ideal = [self.ideal_R(), self.ideal_G(), self.ideal_B()]
 
     def ideal_R (self):
         '''
@@ -60,7 +63,25 @@ class blob (object):
 
     #WIP
     def attraction_to (self, other):
+        '''
+        determines attraction of this blob to another blob
+        Input:
+            blob object
+        Output:
+            attraction constant (0 ~ 100)
+        '''
         R = 0; G = 1; B = 2
+        # first determine sum of difference from ideal
+        diff_R = abs(self.ideal[R] - other.color[R])
+        diff_G = abs(self.ideal[G] - other.color[G])
+        diff_B = abs(self.ideal[B] - other.color[B])
+        sum_diff = diff_R + diff_G + diff_B
+        # then it needs to be scaled... 0, 100
+        # for attraction 100 - perf, 0 - no
+        # for sum diff 0 - perf, 768 - no
+        # probably need to apply a curve to it though
+        attraction = (768 - sum_diff)*100/768
+        return attraction
 
 if __name__ == '__main__':
     b = blob()
