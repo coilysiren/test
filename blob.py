@@ -1,6 +1,7 @@
 '''
 blob = {
     colors:[R,G,B],
+    color_name: 'name',
     ideals:[R,G,B],
     position: ?,
     happiness: ?,
