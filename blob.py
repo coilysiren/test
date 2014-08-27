@@ -8,16 +8,32 @@ blob = {
 }
 '''
 
+import math
+
 class blob (object):
-    '''defines how attracted a blob is to other blobs'''
+    '''defines blobs'''
+
+    #this looks like something for a config file
+    full_colors = [
+        [255, 255, 255,'white'],
+        [0, 0, 0, 'black'],
+        #more!
+    ]
 
     def __init__ (self, blob):
         R = 0; G = 1; B = 2
         self.blob = blob
+        #init colors
+        color = blob.full_colors(random.randrange(0,len(blob.full_colors)))
+        self.color = [color[R], color[G], color[B]]
+        self.color_name = color[3]
+        #/colors
+        #init attraction
         R_ideal = ideal_R(self.blob(colors(R)))
         G_ideal = ideal_R(self.blob(colors(G)))
         B_ideal = ideal_R(self.blob(colors(R,G,B)))
         self.ideals(R_ideal, G_ideal, B_ideal)
+        #/attraction
 
     def ideal_R (self, R):
         '''
