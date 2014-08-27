@@ -20,11 +20,18 @@ class blob (object):
 
     #this looks like something for a config file
     color_list = [
-        [255, 255, 255,'white'],
-        [0, 0, 0, 'black'],
-        [255, 0, 0, 'red'],
-        [0, 255, 0, 'green'],
-        [0, 0, 255, 'blue'],
+        [255, 255, 255,'pure white'],
+        [0, 0, 0, 'pure black'],
+        [255, 0, 0, 'pure red'],
+        [0, 255, 0, 'pure green'],
+        [0, 0, 255, 'pure blue'],
+        [218, 165, 32, 'golden rod'],
+        [245, 222, 179, 'wheat'],
+        [255, 127, 80, 'coral'],
+        [139, 69, 19, 'chocolate'],
+        [0, 100, 0, 'darkgreen'],
+        [240, 255, 240, 'honeydew'],
+        [128, 0, 128, 'purple']
         #more!
     ]
 
@@ -63,7 +70,6 @@ class blob (object):
         '''
         red is het, attraction to colors that are different from you
         the less red you are, the more you are attracted to red
-        sky blues (0,255,255) are most attracted to reds (255,0,0)
         '''
         return (-self.color[0]+255)
 
@@ -71,7 +77,6 @@ class blob (object):
         '''
         green is gay, attraction to colors like yourself
         the more green you are, the more you are attracted to green
-        greens (0,255,0) are most attracted to greens (0,255,0)
         '''
         return (self.color[1])
 
@@ -79,7 +84,6 @@ class blob (object):
         '''
         blue is pansexuality, attraction to all colors
         the more color you have, the more you are attracted to blue
-        blacks (255,255,255) are most attracted to blues (0,0,255)
         '''
         return ((self.color[0]+self.color[1]+self.color[2])/(3))
 
@@ -97,10 +101,13 @@ class blob (object):
         diff_B = abs(self.ideal[B] - other.color[B])
         sum_diff = diff_R + diff_G + diff_B
         attraction = (768 - sum_diff)*100/768
-        print(self.color_name,' has ',attraction,' to ',other.color_name)
+        print(str(self.color_name)+' has '+str(attraction)+' to '+str(other.color_name))
         return attraction
 
     def affection_for (self, other):
+        pass
+
+    def relationship_with (self, other):
         pass
 
 if __name__ == '__main__':
@@ -109,7 +116,9 @@ if __name__ == '__main__':
     c = blob()
     d = blob()
     e = blob()
-    ae = [a,b,c,d,e]
-    for thing1 in ae:
-        for thing2 in ae:
-            thing1.attraction_to(thing2)
+    f = blob()
+    g = blob()
+    ae = [a,b,c,d,e,f,g]
+    print(a.ideal)
+    for thing in ae:
+        a.attraction_to(thing)
