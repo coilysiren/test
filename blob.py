@@ -1,11 +1,15 @@
 '''
+blob attributes
 blob = {
     colors:[R,G,B],
     color_name: 'name',
     ideals:[R,G,B],
-    position: ?,
-    happiness: ?,
-    connectors: ?,
+    position: [X, Y, angle],
+    happiness: value,
+    connectors: [angle, type],
+
+blob external functions
+    blob.attraction_to()
 }
 '''
 
@@ -33,7 +37,7 @@ class blob (object):
         R_ideal = ideal_R(self.blob(colors(R)))
         G_ideal = ideal_R(self.blob(colors(G)))
         B_ideal = ideal_R(self.blob(colors(R,G,B)))
-        self.ideals(R_ideal, G_ideal, B_ideal)
+        self.ideals = [R_ideal, G_ideal, B_ideal]
         #/attraction
 
     def ideal_R (self, R):
@@ -61,5 +65,5 @@ class blob (object):
         return ((R+G+B)/(3))
 
     #WIP
-    def attraction (self, other):
+    def attraction_to (self, other):
         R = 0; G = 1; B = 2
