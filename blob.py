@@ -1,8 +1,14 @@
 '''
-blob = {colors:[R,G,B]}
+blob = {
+    colors:[R,G,B],
+    ideals:[R,G,B],
+    position: ?,
+    happiness: ?,
+    connectors: ?,
+}
 '''
 
-class attract (object):
+class blob (object):
     '''defines how attracted a blob is to other blobs'''
 
     def __init__ (self, blob):
