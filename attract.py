@@ -15,24 +15,24 @@ class attract (object):
 
     def ideal_R (self, R):
         '''
-        Red is het, attraction to colors that are different from you
-        The less red you are, the more you are attracted to red
+        red is het, attraction to colors that are different from you
+        the less red you are, the more you are attracted to red
         sky blues (0,255,255) are most attracted to reds (255,0,0)
         '''
         return (-R+255)
 
     def ideal_G (self, G):
         '''
-        Gay is gay, attraction to colors like yourself
-        The more green you are, the more you are attracted to green
+        green is gay, attraction to colors like yourself
+        the more green you are, the more you are attracted to green
         greens (0,255,0) are most attracted to greens (0,255,0)
         '''
         return (G)
 
     def ideal_B (self, R, G, B):
         '''
-        Blue is pansexuality, attraction to all colors
-        The more color you have, the more you are attracted to blue
+        blue is pansexuality, attraction to all colors
+        the more color you have, the more you are attracted to blue
         blacks (255,255,255) are most attracted to blues (0,0,255)
         '''
         return ((R+G+B)/(3))
