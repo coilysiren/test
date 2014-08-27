@@ -29,9 +29,23 @@ class blob (object):
     ]
 
     feelings = [
-        'isn\'t a fan of'
-        'prefers blobs other than'
-        ''
+        'is ambivalent towards',
+        'knows a bit about',
+        'sort of likes',
+        'feels friendly towards',
+        'has quite a bit of affection for',
+        'is in love with',
+
+    ]
+
+    relationships = [
+        'is on good terms with',
+        'is friends with',
+        'is good friends with',
+        'is best friends with',
+        'is dating',
+        'is in love with',
+        'is soul bonded to',
     ]
 
     def __init__ (self):
@@ -76,15 +90,10 @@ class blob (object):
             attraction constant (0 ~ 100)
         '''
         R = 0; G = 1; B = 2
-        # first determine sum of difference from ideal
         diff_R = abs(self.ideal[R] - other.color[R])
         diff_G = abs(self.ideal[G] - other.color[G])
         diff_B = abs(self.ideal[B] - other.color[B])
         sum_diff = diff_R + diff_G + diff_B
-        # then it needs to be scaled... 0, 100
-        # for attraction 100 - perf, 0 - no
-        # for sum diff 0 - perf, 768 - no
-        # probably need to apply a curve to it though
         attraction = (768 - sum_diff)*100/768
         return attraction
 
