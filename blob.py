@@ -15,7 +15,7 @@ class blob (object):
     '''defines blobs'''
 
     #this looks like something for a config file
-    full_colors = [
+    color_list = [
         [255, 255, 255,'white'],
         [0, 0, 0, 'black'],
         #more!
@@ -25,7 +25,7 @@ class blob (object):
         R = 0; G = 1; B = 2
         self.blob = blob
         #init colors
-        color = blob.full_colors(random.randrange(0,len(blob.full_colors)))
+        color = blob.color_list(random.randrange(0,len(blob.color_list)))
         self.color = [color[R], color[G], color[B]]
         self.color_name = color[3]
         #/colors
