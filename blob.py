@@ -9,7 +9,7 @@ blob = {
 }
 '''
 
-import math
+import random
 
 class blob (object):
     '''defines blobs'''
